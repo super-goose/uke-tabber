@@ -1,5 +1,5 @@
 
-describe('note module', () => {
+describe('"Note" module', () => {
   const { Note } = require('./note');
 
   it('makes a note', () => {
