@@ -18,6 +18,10 @@ export class Note {
     this.accidental = accidental;
   }
 
+  public clone = (): Note => {
+    return new Note(this.name, this.octave, this.accidental);
+  }
+
   private canSharp = (): boolean => {
     return (
       !['b', 'e'].includes(this.name) &&
@@ -76,7 +80,9 @@ export class Note {
     return this;
   }
 
-  public toString = (): string => `${this.octave}${this.name.toUpperCase()}${this.accidental === Note.NATURAL ? '' : this.accidental}`
+  public toString = (padding = ''): string => (
+    `${this.octave}${this.name.toUpperCase()}${this.accidental === Note.NATURAL ? padding : this.accidental}`
+  );
 }
 
 // module.exports = { Note };
